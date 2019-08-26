@@ -39,6 +39,21 @@ Resources:
           Properties:
             Path: /
             Method: get
+  Information:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: information.get
+      Runtime: nodejs8.10
+      Role:
+        Fn::GetAtt:
+        - LambdaExecutionRole
+        - Arn
+      Events:
+        GetEvent:
+          Type: Api
+          Properties:
+            Path: /information
+            Method: get
   LambdaExecutionRole:
     Description: Creating service role in IAM for AWS Lambda
     Type: AWS::IAM::Role

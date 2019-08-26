@@ -1,0 +1,13 @@
+{
+    "GetHelloWorld": {
+        "apigateway": {
+            "path": "/",
+            "method": {
+                "value": "GET",
+                "items": [
+                    "GET"
+                ]
+            }
+        }
+    }
+}
