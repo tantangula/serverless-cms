@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <img src={variables.url + "/0006.png"} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/AptimusPrimooooooooooo.js</code> and save to reload.
+          Edit <code>src/AptimusPrimoooooooooooo.js</code> and save to reload.
         </p>
         <a
           className="App-link"
