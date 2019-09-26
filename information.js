@@ -7,7 +7,7 @@ exports.get = function(event, context, callback) {
   //let contents = fs.readFileSync(`build${path.sep}index.html`);
   let result = {
     statusCode: 200,
-    body: "Helllooooooo",//contents.toString(),
+    body: process.env.FILE_URL + "/files/logo.png",//contents.toString(),
     headers: {'content-type': 'text/html'}
   };
 

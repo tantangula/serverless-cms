@@ -18,6 +18,9 @@ Parameters:
 Globals:
   Function:
     AutoPublishAlias: live
+    Environment:
+      Variables:
+        FILE_URL: "filesandshit.com"
     DeploymentPreference:
       Enabled: true
       Type: Canary10Percent5Minutes

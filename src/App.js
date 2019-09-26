@@ -1,12 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import variables from './variables.js';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={variables.url + "/0006.png"} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/AptimusPrimooooooooooo.js</code> and save to reload.
         </p>
