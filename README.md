@@ -7,7 +7,7 @@ npm run start-front
 npm run start-back
 npm run start-dev-proxy
 ```
-Then navigate to the preview application link provided by your Cloud9 environment.
+Then navigate to the preview application link provided by your Cloud99 environment.
 
 Here's the buggy live sit
 https://kyv77jxpil.execute-api.us-west-2.amazonaws.com/Prod/
