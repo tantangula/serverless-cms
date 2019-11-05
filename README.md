@@ -9,5 +9,5 @@ npm run start-dev-proxy
 ```
 Then navigate to the preview application link provided by your Cloud999 environment.
 
-Here's the buggy live sit
+Here's the buggy live site
 https://kyv77jxpil.execute-api.us-west-2.amazonaws.com/Prod/
