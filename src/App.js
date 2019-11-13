@@ -1,14 +1,29 @@
 import React from 'react';
+import axios from 'axios';
 import './App.css';
-import variables from './variables.js';
+import url from './url.js';
 
-function App() {
-  return (
-    <div className="App">
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = { seconds: 104 };
+  }
+
+  async componentDidMount() {
+    const response = await axios({
+      url: url.api + "/information",
+      method: 'get'
+    });
+
+    console.log(response);
+  }
+
+  render() {
+    return (<div className="App">
       <header className="App-header">
-        <img src={variables.url + "/images/0006.png"} className="App-logo" alt="logo" />
+        <img src={url.assets + "/images/0006.png"} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/AptimusPrimoooooooooooo.js</code> and save to reload.
+          Edit <code>src/AptimusPrimoo.js</code> and save to reload. {this.state.seconds}
         </p>
         <a
           className="App-link"
@@ -19,8 +34,8 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
-  );
+    </div>);
+  }
 }
 
 export default App;
