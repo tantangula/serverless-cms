@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import styles from '../styles.css.js';
 
 export default class Number extends PureComponent {
   
@@ -14,7 +15,7 @@ export default class Number extends PureComponent {
         <h1>
           {seconds}
         </h1>
-        <div id="yellow-square" onClick={getNumber}>
+        <div style={styles.yellowSquare} onClick={getNumber}>
         </div>
       </div>
     );
