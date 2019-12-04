@@ -40,7 +40,12 @@ Resources:
         GetEvent:
           Type: Api
           Properties:
-            Path: /{path}
+            Path: /
+            Method: get
+        GetEventWithPath:
+          Type: Api
+          Properties:
+            Path: /{path+}
             Method: get
   Information:
     Type: AWS::Serverless::Function
