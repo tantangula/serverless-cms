@@ -7,7 +7,7 @@ exports.get = function(event, context, callback) {
   //let contents = fs.readFileSync(`build${path.sep}index.html`);
   let result = {
     statusCode: 200,
-    body: process.env.FILE_URL + "/files/logo.png", //contents.toString(),
+    body: JSON.stringify(process.env),
     headers: {
       'content-type': 'text/html',
       "Access-Control-Allow-Origin": "*"
