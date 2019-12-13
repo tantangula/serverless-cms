@@ -3,9 +3,10 @@ import { getNumber } from '../redux/actions';
 import Number from './NumberB';
 
 const mapStateToProps = state => {
-  const { seconds } = state;
+  const { seconds, secondsArray } = state;
   return {
-    seconds: seconds
+    seconds: seconds,
+    secondsArray: secondsArray
   };
 };
 

@@ -43,3 +43,38 @@ Globals:
 
 For deployment, we push to master and that git push will kick off the CodePipeline to deploy our CloudFormation stack.
 Ultimately the React app, the api, and the assets are all bundled together by CloudFront and served from the same domain.
+
+This project uses styled-components to manage CSS...
+```
+import styled from 'styled-components'
+
+const Button = styled.button`
+  background: transparent;
+  border-radius: 3px;
+  border: 2px solid orange;
+  color: orange;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+`
+
+render() {
+  return (
+    <div>
+      <Button> Normal Button </Button>
+    </div>
+  );
+}
+```
+
+Posts are stored in DynamoDB as HTML strings, and then loaded into the post component dynamically using html-react-parser...
+```
+import parse from 'html-react-parser';
+
+render() {
+  return (
+    <div>
+      {parse(post01)}
+    </div>
+  );
+}
+```

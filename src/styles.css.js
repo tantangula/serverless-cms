@@ -7,7 +7,7 @@ var blueSquare = {
 var yellowSquare = {
     height:'30px',
     width:'30px',
-    backgroundColor:'yellow'
+    backgroundColor:'grey'
 };
 
 export default { blueSquare, yellowSquare };
