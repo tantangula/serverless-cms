@@ -20,7 +20,7 @@ class App extends React.Component {
       method: 'get'
     });
 
-    console.log(response);
+    console.log('response: ', response);
   }
 
   render() {
