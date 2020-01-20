@@ -8,21 +8,24 @@ const aws = require("aws-sdk");
 var docClient = new aws.DynamoDB.DocumentClient();
 
 exports.get = async function(event, context, callback) {
-  //let contents = fs.readFileSync(`build${path.sep}index.html`);
   var table = 'posts';
   
   console.log('id: ', event.pathParameters.id);
 
   var params = {
-      TableName: table,
-      Key:{
-          "id": event.pathParameters.id
-      }
+    TableName: table,
+    KeyConditionExpression: "#id = :id",
+    ExpressionAttributeNames:{
+      "#id": "id"
+    },
+    ExpressionAttributeValues: {
+      ":id": event.pathParameters.id
+    }
   };
   
   let tableData = 'nothing';
   try {
-    let dbGet = await docClient.get(params).promise();
+    let dbGet = await docClient.query(params).promise();
     tableData = JSON.stringify(dbGet, null, 2);
   } catch(err) {
     console.log('err', err);

@@ -2,5 +2,5 @@ console.log("hello from import");
 console.log(process.env);
 module.exports = {
   assets: process.env.NODE_ENV === "development" ? "https://d2hamo3qr4v6we.cloudfront.net":"",
-  api: process.env.NODE_ENV === "development" ? "http://34.218.240.115:8081":"" 
+  api: process.env.NODE_ENV === "development" ? "http://18.188.168.190:8081":"" 
 };

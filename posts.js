@@ -8,7 +8,6 @@ const aws = require("aws-sdk");
 var docClient = new aws.DynamoDB.DocumentClient();
 
 exports.get = async function(event, context, callback) {
-  //let contents = fs.readFileSync(`build${path.sep}index.html`);
   var table = "posts";
 
   var params = {
@@ -26,6 +25,23 @@ exports.get = async function(event, context, callback) {
   let result = {
     statusCode: 200,
     body: tableData,
+    headers: {
+      'content-type': 'application/json',
+      "Access-Control-Allow-Origin": "*"
+    }
+  };
+
+  callback(null, result);
+};
+
+exports.post = async function(event, context, callback) {
+  let body = JSON.parse(event.body);
+  
+  console.log('event: ', body.body);
+  
+  let result = {
+    statusCode: 200,
+    body: 'thumbs up',
     headers: {
       'content-type': 'application/json',
       "Access-Control-Allow-Origin": "*"

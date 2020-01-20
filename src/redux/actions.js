@@ -17,8 +17,8 @@ export const setPosts = (data) => {
 export const setPost = (data) => {
   console.log('setPost Data: ', data);
   let post;
-  if(data.Item) {
-    post = data.Item;
+  if(data.Items[0]) {
+    post = data.Items[0];
   } else {
     post = {
       id:0,

@@ -20,14 +20,14 @@ Globals:
     AutoPublishAlias: live
     Environment:
       Variables:
-        FILE_URL: "filesandshit.com"
+        FILE_URL: "filesandthings.com"
     DeploymentPreference:
       Enabled: true
       Type: Canary10Percent5Minutes
       Role: !Ref CodeDeployRole
-
+      
 Resources:
-  GetHelloWorld:
+  Index:
     Type: AWS::Serverless::Function
     Properties:
       Handler: index.get
@@ -47,21 +47,6 @@ Resources:
           Properties:
             Path: /{path+}
             Method: get
-  Information:
-    Type: AWS::Serverless::Function
-    Properties:
-      Handler: information.get
-      Runtime: nodejs10.x
-      Role:
-        Fn::GetAtt:
-        - LambdaExecutionRole
-        - Arn
-      Events:
-        GetEvent:
-          Type: Api
-          Properties:
-            Path: /information
-            Method: get
   GetPosts:
     Type: AWS::Serverless::Function
     Properties:
@@ -77,6 +62,21 @@ Resources:
           Properties:
             Path: /posts
             Method: get
+  PostPosts:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: posts.post
+      Runtime: nodejs10.x
+      Role:
+        Fn::GetAtt:
+        - LambdaExecutionRole
+        - Arn
+      Events:
+        GetEvent:
+          Type: Api
+          Properties:
+            Path: /posts
+            Method: post
   GetPost:
     Type: AWS::Serverless::Function
     Properties:
@@ -92,21 +92,6 @@ Resources:
           Properties:
             Path: /posts/{id}
             Method: get
-  Submit:
-    Type: AWS::Serverless::Function
-    Properties:
-      Handler: submit.post
-      Runtime: nodejs10.x
-      Role:
-        Fn::GetAtt:
-        - LambdaExecutionRole
-        - Arn
-      Events:
-        PostEvent:
-          Type: Api
-          Properties:
-            Path: /submit
-            Method: post
   LambdaExecutionRole:
     Description: Creating service role in IAM for AWS Lambda
     Type: AWS::IAM::Role

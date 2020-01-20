@@ -26,8 +26,7 @@
   },
   "scripts": {
     "start-front": "PORT=8080 react-scripts start",
-    "start-back": "sam local start-api --host 172.31.28.5 --port 8081",
-    "start-dev-proxy": "node proxy.js",
+    "start-back": "sam local start-api --host 172.31.41.3 --port 8081",
     "build": "react-scripts build",
     "test-front": "react-scripts test",
     "test-back": "mocha --recursive tests",
