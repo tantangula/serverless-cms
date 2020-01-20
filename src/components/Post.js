@@ -36,7 +36,6 @@ export default class Post extends React.Component {
 
   render() {
     const { post } = this.props;
-    console.log('post.body: ', post.body);
     return (
       <div>
         {parse(post.body, options)}

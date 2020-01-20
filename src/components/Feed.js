@@ -35,7 +35,6 @@ export default class Feed extends React.Component {
 
   render() {
     const { posts } = this.props;
-    console.log('posts: ', posts);
     return (
       <div>
         {posts.map(({ id, body }, index) => (

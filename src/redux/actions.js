@@ -6,7 +6,6 @@ export const GET_POST = 'GET_POST';
 export const UPDATE_CODE = 'UPDATE_CODE';
 
 export const setPosts = (data) => {
-  console.log('setPosts Data: ', data);
   const posts = data.Items;
   return {
     type: GET_POSTS,
@@ -15,7 +14,6 @@ export const setPosts = (data) => {
 };
 
 export const setPost = (data) => {
-  console.log('setPost Data: ', data);
   let post;
   if(data.Items[0]) {
     post = data.Items[0];
