@@ -47,10 +47,10 @@ Resources:
           Properties:
             Path: /{path+}
             Method: get
-  GetPosts:
+  Posts:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: posts.get
+      Handler: posts.handler
       Runtime: nodejs10.x
       Role:
         Fn::GetAtt:
@@ -62,25 +62,15 @@ Resources:
           Properties:
             Path: /posts
             Method: get
-  PostPosts:
-    Type: AWS::Serverless::Function
-    Properties:
-      Handler: posts.post
-      Runtime: nodejs10.x
-      Role:
-        Fn::GetAtt:
-        - LambdaExecutionRole
-        - Arn
-      Events:
-        GetEvent:
+        PostEvent:
           Type: Api
           Properties:
             Path: /posts
             Method: post
-  GetPost:
+  Post:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: post.get
+      Handler: post.handler
       Runtime: nodejs10.x
       Role:
         Fn::GetAtt:

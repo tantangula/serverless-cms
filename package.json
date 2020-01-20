@@ -1,6 +1,6 @@
 {
-  "name": "hello-world",
-  "description": "Sample NodeJs web application",
+  "name": "serverless-cms",
+  "description": "Basic CMS using AWS Serverless tech",
   "version": "0.0.1",
   "private": true,
   "dependencies": {

@@ -3,13 +3,13 @@
 const fs = require('fs');
 const path = require('path');
 
+const response = (statusCode, body, additionalHeaders) => ({
+  statusCode,
+  body: body,
+  headers: { 'Content-Type': 'text/html', ...additionalHeaders },
+});
+
 exports.get = function(event, context, callback) {
   let contents = fs.readFileSync(`build${path.sep}index.html`);
-  let result = {
-    statusCode: 200,
-    body: contents.toString(),
-    headers: {'content-type': 'text/html'}
-  };
-
-  callback(null, result);
+  return response('200', JSON.stringify(contents, null, 2));
 };
