@@ -5,23 +5,12 @@ import {
   Route
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import axios from 'axios';
 import './App.css';
-import url from './url.js';
 import store from './redux/store';
-import NumberBContainer from './components/NumberBContainer';
-import NumberYContainer from './components/NumberYContainer';
+import FeedContainer from './components/FeedContainer';
+import PostContainer from './components/PostContainer';
 
 class App extends React.Component {
-
-  async componentDidMount() {
-    const response = await axios({
-      url: url.api + "/information",
-      method: 'get'
-    });
-
-    console.log('response: ', response);
-  }
 
   render() {
     return (
@@ -30,22 +19,10 @@ class App extends React.Component {
           <header className="App-header">
             <Router>
               <Switch>
-                <Route exact path="/" component={NumberBContainer} />
-                <Route path="/vari" component={NumberYContainer} />
+                <Route exact path="/" component={FeedContainer} />
+                <Route exact path="/:id" component={PostContainer} />
               </Switch>
             </Router>
-            <img src={url.assets + "/images/0006.png"} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/AptimusPrimoo.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
           </header>
         </div>
       </Provider>

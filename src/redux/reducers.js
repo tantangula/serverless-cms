@@ -1,26 +1,34 @@
-import { GET_NUMBER } from './actions';
+import { GET_POSTS, GET_POST, UPDATE_CODE } from './actions';
+
+const code = `function add(a, b) {
+  return a + b;
+}
+`;
 
 const initialState = {
-  notes: [],
-  seconds: 123,
-  seconds02: 123,
-  secondsArray: [
-      {number:2},
-      {number:34},
-      {number:5},
-      {number:34},
-      {number:23}
-    ]
+  code: code,
+  posts: [],
+  post: {body:''}
 };
 
 function rootReducer(state = initialState, action) {
   console.log('state: ', state);
+  console.log('action', action);
   switch(action.type) {
-    case GET_NUMBER:
+    case GET_POSTS:
       return {
-        secondsArray: state.secondsArray,
-        notes: [],
-        seconds: action.number
+        ...state,
+        posts: action.posts
+      };
+    case GET_POST:
+      return {
+        ...state,
+        post: action.post
+      };
+    case UPDATE_CODE:
+      return {
+        ...state,
+        code: action.code
       };
     default:
       return state;

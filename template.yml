@@ -31,7 +31,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: index.get
-      Runtime: nodejs8.10
+      Runtime: nodejs10.x
       Role:
         Fn::GetAtt:
         - LambdaExecutionRole
@@ -51,7 +51,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: information.get
-      Runtime: nodejs8.10
+      Runtime: nodejs10.x
       Role:
         Fn::GetAtt:
         - LambdaExecutionRole
@@ -62,6 +62,51 @@ Resources:
           Properties:
             Path: /information
             Method: get
+  GetPosts:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: posts.get
+      Runtime: nodejs10.x
+      Role:
+        Fn::GetAtt:
+        - LambdaExecutionRole
+        - Arn
+      Events:
+        GetEvent:
+          Type: Api
+          Properties:
+            Path: /posts
+            Method: get
+  GetPost:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: post.get
+      Runtime: nodejs10.x
+      Role:
+        Fn::GetAtt:
+        - LambdaExecutionRole
+        - Arn
+      Events:
+        GetEvent:
+          Type: Api
+          Properties:
+            Path: /posts/{id}
+            Method: get
+  Submit:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: submit.post
+      Runtime: nodejs10.x
+      Role:
+        Fn::GetAtt:
+        - LambdaExecutionRole
+        - Arn
+      Events:
+        PostEvent:
+          Type: Api
+          Properties:
+            Path: /submit
+            Method: post
   LambdaExecutionRole:
     Description: Creating service role in IAM for AWS Lambda
     Type: AWS::IAM::Role
