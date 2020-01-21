@@ -17,7 +17,7 @@ const get = async (deps, event) => {
       }
     };
     let dbResponse = await deps.docClient.query(params).promise();
-    return response('200', JSON.stringify(dbResponse, null, 2));
+    return response(200, JSON.stringify(dbResponse, null, 2));
   } catch(err) {
     console.log('err', err);
     throw err;

@@ -11,5 +11,5 @@ const response = (statusCode, body, additionalHeaders) => ({
 
 exports.get = function(event, context, callback) {
   let contents = fs.readFileSync(`build${path.sep}index.html`);
-  return response('200', JSON.stringify(contents, null, 2));
+  return response(200, JSON.stringify(contents));
 };

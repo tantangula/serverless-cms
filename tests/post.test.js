@@ -31,24 +31,18 @@ const handler = methods({
 });
 
 describe("Get a post", function() {
-  it("verifies successful response", async function() {
-    try {
-      let response = await handler({
-        httpMethod: 'GET',
-        pathParameters:{
-          id:'2'
-        }
-      });
-      response.statusCode.should.equal(200);
-      
-      let body = JSON.parse(response.body);
-      console.log(body.Count);
-      
-      body.Count.should.equal(1);
-      return;
-    } catch(err) {
-      console.log('err: ', err.message);
-      throw err;
-    }
+  it("successfully retrieves requested post", async function() {
+    let response = await handler({
+      httpMethod: 'GET',
+      pathParameters:{
+        id:'2'
+      }
+    });
+    response.statusCode.should.equal(200);
+    
+    let body = JSON.parse(response.body);
+    
+    body.Count.should.equal(1);
+    body.Items[0].id.should.equal(2);
   });
 });
