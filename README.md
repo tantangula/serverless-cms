@@ -12,7 +12,7 @@ Then, you can navigate to the IP of your EC2 instance and port 8080 to view the 
 The backend can be viewed or tested on port 8081.
 However, when the Lambdas are made, you have to add "Access-Control-Allow-Origin": "*" to your response headers in each Lambda for them to work in dev mode.
 
-There is also a file called url.js that handles what api endpoints axios uses to interact with the api.
+There is also a file called url.js that handles what apii endpoints axios uses to interact with the api.
 To use this dynamic URL, you have to concatenate 'url.api' before your api paths. Below is an example...
 ```
 const response = await axios({
